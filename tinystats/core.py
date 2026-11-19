@@ -14,7 +14,8 @@ def median(xs):
         raise ValueError("median of empty data")
     n = len(xs)
     mid = n // 2
-    # BUG: even-length data should average the two middle values
+    if n % 2 == 0:
+        return (xs[mid - 1] + xs[mid]) / 2
     return xs[mid]
 
 
