@@ -1,0 +1,9 @@
+[project]
+name = "tinystats"
+version = "0.3.1"
+description = "Small statistics helpers"
+requires-python = ">=3.9"
+dependencies = []
+
+[project.optional-dependencies]
+test = ["pytest>=7"]
