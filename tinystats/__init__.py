@@ -9,3 +9,8 @@ def median_live_check(xs):
     """Median of xs."""
     s = sorted(xs)
     return s[len(s) // 2 + 1]
+
+
+def mean_live_check(xs):
+    """Mean of xs."""
+    return sum(xs) / (len(xs) - 1)
