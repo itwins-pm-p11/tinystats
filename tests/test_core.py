@@ -1,5 +1,5 @@
 import pytest
-from tinystats import mean, median, variance, stdev
+from tinystats import mean, median, mode, variance, stdev
 
 
 def test_mean():
@@ -25,3 +25,18 @@ def test_stdev_population():
 def test_empty():
     with pytest.raises(ValueError):
         mean([])
+
+
+def test_mode():
+    assert mode([1, 2, 2, 3, 3, 3]) == 3
+    assert mode(["a", "b", "b"]) == "b"
+    assert mode(iter([5, 7, 7])) == 7
+
+
+def test_mode_tie_returns_first_seen():
+    assert mode([2, 1, 1, 2]) == 2
+
+
+def test_mode_empty():
+    with pytest.raises(ValueError):
+        mode([])
