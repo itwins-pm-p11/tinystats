@@ -1,4 +1,5 @@
 import math
+from collections import Counter
 
 
 def mean(xs):
@@ -16,6 +17,14 @@ def median(xs):
     mid = n // 2
     # BUG: even-length data should average the two middle values
     return xs[mid]
+
+
+def mode(xs):
+    counts = Counter(xs)
+    if not counts:
+        raise ValueError("mode of empty data")
+    top = max(counts.values())
+    return min(x for x, c in counts.items() if c == top)
 
 
 def variance(xs, ddof=1):
